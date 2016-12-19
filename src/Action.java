@@ -1,0 +1,3 @@
+package bin;
+
+public enum Action {IDLE, WALKLEFT, WALKRIGHT, RUNLEFT, RUNRIGHT, JUMP, CROUCH}

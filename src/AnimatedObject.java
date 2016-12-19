@@ -3,8 +3,8 @@ package bin;
 import java.awt.image.BufferedImage;
 
 public class AnimatedObject extends GameObject {
-	Animation[] animations = null;
-	Animation currentAnimation = null;
+	protected Animation[] animations = null;
+	protected Animation currentAnimation = null;
 
 	public AnimatedObject(float x, float y, Animation[] animations) {
 		super(x, y);

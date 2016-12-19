@@ -18,7 +18,10 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void init() {
+		//consider a class with static methods for loading images with spriteloader
 		handler = new Handler();
+		handler.add(new Player(WIDTH/2, HEIGHT/2, null));
+		addKeyListener(new PlayerInput((Player)handler.get(0)));
 		setBackground(Color.GREEN);
 	}
 
