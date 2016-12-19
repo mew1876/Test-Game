@@ -23,7 +23,7 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void tick() {
-		handler.tick()
+		handler.tick();
 	}
 	
 	private void render() {

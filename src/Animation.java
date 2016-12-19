@@ -11,24 +11,40 @@ public class Animation {
     private int currentFrame;
     private int animationDirection;
     private int totalFrames;
+    private int skipTo;
 
     private boolean stopped;
 
     private ArrayList<Frame> frames = new ArrayList<Frame>();
 
-    public Animation(BufferedImage[] images, int frameDelayIn) {
+    public Animation(BufferedImage[] images, int frameDelay) {
         stopped = true;
 
         for (int i = 0; i < images.length; i++) {
-            addFrame(images[i], frameDelayIn);
+            addFrame(images[i], frameDelay);
         }
 
         frameTime = 0;
-        frameDelay = frameDelayIn;
+        this.frameDelay = frameDelay;
         currentFrame = 0;
         animationDirection = 1;
         totalFrames = frames.size();
+        skipTo = 0;
+    }
 
+    public Animation(BufferedImage[] images, int frameDelay, int skipTo) {
+        stopped = true;
+
+        for (int i = 0; i < images.length; i++) {
+            addFrame(images[i], frameDelay);
+        }
+
+        frameTime = 0;
+        this.frameDelay = frameDelay;
+        currentFrame = 0;
+        animationDirection = 1;
+        totalFrames = frames.size();
+        this.skipTo = skipTo;
     }
 
     public void start() {
@@ -85,7 +101,7 @@ public class Animation {
                 currentFrame += animationDirection;
 
                 if (currentFrame > totalFrames - 1) {
-                    currentFrame = 0;
+                    currentFrame = skipTo;
                 }
                 else if (currentFrame < 0) {
                     currentFrame = totalFrames - 1;

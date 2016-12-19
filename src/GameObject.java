@@ -1,11 +1,14 @@
 package bin;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
 public class GameObject{
-	protected int x, y, vX = 0, vY = 0;
+	protected float x, y, vX = 0f, vY = 0f;
 	protected BufferedImage img = null;
 	protected boolean visible = false;
 
-	public GameObject(int x, int y) {
+	public GameObject(float x, float y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -17,23 +20,23 @@ public class GameObject{
 
 	public void render(Graphics g) {
 		if(visible) {
-			g.drawImage(x, y, img, null);
+			g.drawImage(img, (int)x, (int)y, null);
 		}
 	}
 
-	public int getX() {
+	public float getX() {
 		return x;
 	}
 
-	public int getY() {
+	public float getY() {
 		return y;
 	}
 
-	public int getVelX() {
+	public float getVelX() {
 		return vX;
 	}
 
-	public int getVelY() {
+	public float getVelY() {
 		return vY;
 	}
 
@@ -41,19 +44,19 @@ public class GameObject{
 		return visible;
 	}
 
-	public void setX(int x) {
+	public void setX(float x) {
 		this.x = x;
 	}
 
-	public void setY(int y) {
+	public void setY(float y) {
 		this.y = y;
 	}
 
-	public void setVelX(int vX) {
+	public void setVelX(float vX) {
 		this.vX = vX;
 	}
 
-	public void setVelY(int vY) {
+	public void setVelY(float vY) {
 		this.vY = vY;
 	}
 
