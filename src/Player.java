@@ -1,11 +1,18 @@
 package bin;
 
+import java.awt.Graphics;
+
 public class Player extends AnimatedObject {
 	protected Action action;
 
-	public Player(float x, float y, Animation[] animations) {
-		super(x, y, animations);
-		action = Action.IDLE;
+	public Player(float x, float y) {
+		super(x, y);
+		idle();
+	}
+
+	public Player(float x, float y, boolean visible) {
+		super(x, y, visible);
+		idle();
 	}
 
 	public void tick() {
@@ -15,26 +22,35 @@ public class Player extends AnimatedObject {
 	public void idle() {
 		System.out.println("Idlin");
 		action = Action.IDLE;
+		setAnimation(PlayerAssets.animations[0]);
 	}
 
 	public void walkLeft() {
 		System.out.println("Walkin left");
 		action = Action.WALKLEFT;
+		inverted = true;
+		setAnimation(PlayerAssets.animations[1]);
 	}
 
 	public void walkRight() {
 		System.out.println("Walkin right");
 		action = Action.WALKRIGHT;
+		inverted = false;
+		setAnimation(PlayerAssets.animations[1]);
 	}
 
 	public void runLeft() {
 		System.out.println("Runin left");
 		action = Action.RUNLEFT;
+		inverted = true;
+		setAnimation(PlayerAssets.animations[2]);
 	}
 
 	public void runRight() {
 		System.out.println("Runin right");
 		action = Action.RUNRIGHT;
+		inverted = false;
+		setAnimation(PlayerAssets.animations[2]);
 	}
 
 	public void jump() {
@@ -53,7 +69,7 @@ public class Player extends AnimatedObject {
 		return action;
 	}
 
-	public void setAction(Action newAction) {
+	public void doAction(Action newAction) {
 		switch(newAction) {
 			case IDLE:
 				idle();

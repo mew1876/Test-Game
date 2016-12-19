@@ -42,7 +42,7 @@ public class PlayerInput extends KeyAdapter {
 		Action currentAction = player.getAction();
 
 		if(newAction != null && newAction != currentAction && !(newAction == Action.WALKLEFT && currentAction == Action.RUNLEFT) && !(newAction == Action.WALKRIGHT && currentAction == Action.RUNRIGHT)) {
-			player.setAction(newAction);
+			player.doAction(newAction);
 		}
 
 		lastKey = e;

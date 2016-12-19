@@ -18,11 +18,9 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void init() {
-		//consider a class with static methods for loading images with spriteloader
 		handler = new Handler();
-		handler.add(new Player(WIDTH/2, HEIGHT/2, null));
+		handler.add(new Player(WIDTH/2, HEIGHT/2, true));
 		addKeyListener(new PlayerInput((Player)handler.get(0)));
-		setBackground(Color.GREEN);
 	}
 
 	private void tick() {
@@ -38,6 +36,9 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		Graphics g = bs.getDrawGraphics();
+
+		g.setColor(Color.GREEN);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 
 		handler.render(g);
 	
