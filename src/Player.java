@@ -23,6 +23,8 @@ public class Player extends AnimatedObject {
 		System.out.println("Idlin");
 		action = Action.IDLE;
 		setAnimation(PlayerAssets.animations[0]);
+		vX = 0;
+		vY = 0;
 	}
 
 	public void walkLeft() {
@@ -30,6 +32,7 @@ public class Player extends AnimatedObject {
 		action = Action.WALKLEFT;
 		inverted = true;
 		setAnimation(PlayerAssets.animations[1]);
+		vX = -3;
 	}
 
 	public void walkRight() {
@@ -37,6 +40,7 @@ public class Player extends AnimatedObject {
 		action = Action.WALKRIGHT;
 		inverted = false;
 		setAnimation(PlayerAssets.animations[1]);
+		vX = 3;
 	}
 
 	public void runLeft() {
@@ -44,6 +48,7 @@ public class Player extends AnimatedObject {
 		action = Action.RUNLEFT;
 		inverted = true;
 		setAnimation(PlayerAssets.animations[2]);
+		vX = -6;
 	}
 
 	public void runRight() {
@@ -51,6 +56,7 @@ public class Player extends AnimatedObject {
 		action = Action.RUNRIGHT;
 		inverted = false;
 		setAnimation(PlayerAssets.animations[2]);
+		vX = 6;
 	}
 
 	public void jump() {

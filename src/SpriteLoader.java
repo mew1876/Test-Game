@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 public class SpriteLoader {
     private static BufferedImage spriteSheet;
 
-    public static void loadSheet(String file) {
+    public static void load(String file) {
         spriteSheet = null;
 
         try {
