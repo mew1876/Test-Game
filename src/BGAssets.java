@@ -12,10 +12,10 @@ public class BGAssets {
 
 		clouds = new BufferedImage[3];
 		SpriteLoader.load("backgrounds/clouds/clouds1");
-		clouds[0] = SpriteLoader.getSprite(0, 0, 640, 240);
+		clouds[0] = SpriteLoader.getSprite(0, 0, 1280, 240);
 		SpriteLoader.load("backgrounds/clouds/clouds2");
-		clouds[1] = SpriteLoader.getSprite(0, 0, 640, 240);
+		clouds[1] = SpriteLoader.getSprite(0, 0, 1280, 240);
 		SpriteLoader.load("backgrounds/clouds/clouds3");
-		clouds[2] = SpriteLoader.getSprite(0, 0, 640, 240);
+		clouds[2] = SpriteLoader.getSprite(0, 0, 1280, 240);
 	}
 }

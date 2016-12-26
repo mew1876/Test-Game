@@ -15,7 +15,16 @@ public class LayeredBackground {
 	public void render(Graphics g, int offset) {
 		g.drawImage(background, 0, 0, Game.WIDTH, Game.HEIGHT, null);
 		for(int i = 0; i < layers.length; i++) {
-			g.drawImage(layers[i], (Game.WIDTH - offset/(layers.length -i)) % Game.WIDTH, 0, null);
+			int pos = (layers[i].getWidth() * (i + 2) * (i + 2)/layers.length) - (offset/(layers.length - i + 2));
+
+			if(pos > Game.WIDTH) {
+				pos -= Game.WIDTH + layers[i].getWidth();
+			}
+			else if(pos < -layers[i].getWidth()) {
+				pos += Game.WIDTH + layers[i].getWidth();
+			}
+
+			g.drawImage(layers[i], pos, 0, null);
 		}
 	}
 }
